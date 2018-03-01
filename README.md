@@ -1,1 +1,1 @@
-# FindItFast
+# FindItFast App
