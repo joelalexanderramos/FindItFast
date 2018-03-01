@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FindItFast.Backend.Models
+namespace FindItFast.Domain
 {
     using System;
     using System.Collections.Generic;

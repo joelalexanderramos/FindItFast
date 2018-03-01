@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using FindItFast.Backend.Models;
-
-namespace FindItFast.Backend.Controllers
+﻿namespace FindItFast.Backend.Controllers
 {
+    using System.Data.Entity;
+    using System.Threading.Tasks;
+    using System.Net;
+    using System.Web.Mvc;
+    using FindItFast.Backend.Models;
+    using FindItFast.Domain;
+
     public class UsersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private LocalDataContext db = new LocalDataContext();
 
         // GET: Users
         public async Task<ActionResult> Index()
         {
-            return View(await db.UserList.ToListAsync());
+            return View(await db.Users.ToListAsync());
         }
 
         // GET: Users/Details/5
@@ -28,7 +24,7 @@ namespace FindItFast.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = await db.UserList.FindAsync(id);
+            User user = await db.Users.FindAsync(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -51,7 +47,7 @@ namespace FindItFast.Backend.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UserList.Add(user);
+                db.Users.Add(user);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -66,7 +62,7 @@ namespace FindItFast.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = await db.UserList.FindAsync(id);
+            User user = await db.Users.FindAsync(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -97,7 +93,7 @@ namespace FindItFast.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = await db.UserList.FindAsync(id);
+            User user = await db.Users.FindAsync(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -110,8 +106,8 @@ namespace FindItFast.Backend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            User user = await db.UserList.FindAsync(id);
-            db.UserList.Remove(user);
+            User user = await db.Users.FindAsync(id);
+            db.Users.Remove(user);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
