@@ -10,7 +10,6 @@
 namespace FindItFast.Domain
 {
     using System;
-    using System.Collections.Generic;
     
     public partial class User
     {

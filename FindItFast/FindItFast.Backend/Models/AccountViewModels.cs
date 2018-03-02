@@ -1,8 +1,8 @@
-﻿namespace FindItFast.Backend.Models
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
+namespace FindItFast.Backend.Models
+{
     public class ExternalLoginConfirmationViewModel
     {
         [Required]

@@ -1,12 +1,17 @@
-﻿namespace FindItFast.Backend.Controllers
-{
-    using System.Data.Entity;
-    using System.Threading.Tasks;
-    using System.Net;
-    using System.Web.Mvc;
-    using FindItFast.Backend.Models;
-    using FindItFast.Domain;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using FindItFast.Backend.Models;
+using FindItFast.Domain;
 
+namespace FindItFast.Backend.Controllers
+{
     public class UsersController : Controller
     {
         private LocalDataContext db = new LocalDataContext();

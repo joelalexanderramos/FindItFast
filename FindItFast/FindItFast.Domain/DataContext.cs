@@ -6,6 +6,6 @@
     {
         public DataContext() : base("FindItFastAzureConn")
         {
-        }       
+        }
     }
 }
