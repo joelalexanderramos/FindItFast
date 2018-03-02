@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FindItFast.Domain
+namespace FindItFast.Domain.Models
 {
     using System;
+    using System.Collections.Generic;
     
     public partial class User
     {

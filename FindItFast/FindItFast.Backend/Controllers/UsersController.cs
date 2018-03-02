@@ -8,7 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FindItFast.Backend.Models;
-using FindItFast.Domain;
+using FindItFast.Domain.Models;
 
 namespace FindItFast.Backend.Controllers
 {

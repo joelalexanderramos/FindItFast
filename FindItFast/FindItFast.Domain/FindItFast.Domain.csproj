@@ -50,52 +50,53 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
-    <Compile Include="FindItFastDBModel.Context.cs">
+    <Compile Include="Metadata\UserMetadata.cs" />
+    <Compile Include="Models\FindItFastDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindItFastDBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FindItFastDBModel.cs">
+    <Compile Include="Models\FindItFastDBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindItFastDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FindItFastDBModel.Designer.cs">
+    <Compile Include="Models\FindItFastDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindItFastDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Metadata\UserMetadata.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="Models\User.cs">
       <DependentUpon>FindItFastDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="FindItFastDBModel.edmx">
+    <EntityDeploy Include="Models\FindItFastDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FindItFastDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="FindItFastDBModel.edmx.diagram">
+    <None Include="Models\FindItFastDBModel.edmx.diagram">
       <DependentUpon>FindItFastDBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FindItFastDBModel.Context.tt">
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Metadata\Readme.txt" />
+    <Content Include="Models\FindItFastDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FindItFastDBModel.edmx</DependentUpon>
       <LastGenOutput>FindItFastDBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="FindItFastDBModel.tt">
+    <Content Include="Models\FindItFastDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FindItFastDBModel.edmx</DependentUpon>
       <LastGenOutput>FindItFastDBModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,79 +1,55 @@
-﻿@model IEnumerable<FindItFast.Domain.User>
+﻿@model IEnumerable<FindItFast.Domain.Models.User>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All Users</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New User", "Create", null, new { @class = "btn btn-warning" } )
 </p>
 <table class="table">
     <tr>
+        <th>Action</th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.JobTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.WorkPhone)
+        </th>        
+        <th>
             @Html.DisplayNameFor(model => model.Mobile)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WorkPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>        
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.FullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.JobTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.WorkPhone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+            @Html.DisplayFor(modelItem => item.Mobile)
         </td>
     </tr>
 }

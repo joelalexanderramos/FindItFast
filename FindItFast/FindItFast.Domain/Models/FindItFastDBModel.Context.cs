@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FindItFast.Domain
+namespace FindItFast.Domain.Models
 {
     using System;
     using System.Data.Entity;
@@ -25,6 +25,6 @@ namespace FindItFast.Domain
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }
