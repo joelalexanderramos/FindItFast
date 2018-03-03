@@ -44,11 +44,9 @@ namespace FindItFast.Backend.Controllers
         }
 
         // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "UserId,FirstName,LastName,JobTitle,Gender,BirthDate,Email,Mobile,WorkPhone,IsActive,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById")] User user)
+        public async Task<ActionResult> Create(User user)
         {
             if (ModelState.IsValid)
             {
@@ -76,11 +74,9 @@ namespace FindItFast.Backend.Controllers
         }
 
         // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "UserId,FirstName,LastName,JobTitle,Gender,BirthDate,Email,Mobile,WorkPhone,IsActive,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById")] User user)
+        public async Task<ActionResult> Edit(User user)
         {
             if (ModelState.IsValid)
             {

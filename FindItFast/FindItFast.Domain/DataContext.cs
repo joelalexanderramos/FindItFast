@@ -1,7 +1,11 @@
 ﻿namespace FindItFast.Domain
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.Core.Objects;
     using System.Data.Entity.ModelConfiguration.Conventions;
+    using System.Threading.Tasks;
+    
 
     public class DataContext : DbContext
     {
@@ -13,6 +17,6 @@
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
-        }
+        }        
     }
 }

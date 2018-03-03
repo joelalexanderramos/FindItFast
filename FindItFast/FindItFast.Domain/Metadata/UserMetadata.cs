@@ -14,7 +14,7 @@
             {
                 return string.Format("{0} {1}", this.FirstName, this.LastName);
             }
-        }
+        }        
 
         public class UserMetadata
         {
@@ -27,7 +27,10 @@
             public object LastName { get; set; }
 
             [Display(Name = "Job Title")]
-            public object JobTitle { get; set; }            
+            public object JobTitle { get; set; }
+
+            [Required]
+            public object Email { get; set; }
         }
     }
 
