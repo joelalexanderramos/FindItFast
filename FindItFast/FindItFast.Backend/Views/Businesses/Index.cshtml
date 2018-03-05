@@ -4,61 +4,109 @@
     ViewBag.Title = "Index";
 }
 
-<h2>All Businesses</h2>
+<h2>Businesses</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+        </div>
 
-<p>
-    @Html.ActionLink("New Business", "Create", null, new { @class = "btn btn-warning" })
-</p>
-<table class="table">
-    <tr>
-        <th>Action</th>
-        <th>
-            @Html.DisplayNameFor(model => model.LegalName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfEmployees)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telephone)
-        </th>
+        <div class="col-lg-6 navbar-form navbar-right">
+            @Html.ActionLink("Create Business", "Create", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 
-    </tr>
+    <div class="panel panel-default">
+        <div class="row">
+            <div class="panel-body">
+                <div class="col-lg-6">
+                </div>
 
-@foreach (var item in Model) {
-    <tr> 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.BusinessId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.BusinessId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.BusinessId })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LegalName)
-        </td>        
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfEmployees)
-        </td>        
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telephone)
-        </td>
-    </tr>
+                <div class="col-lg-6 navbar-form navbar-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Recently Created</a></li>
+                            <li><a href="#">Recently Viewed</a></li>
+                            <li><a href="#">Recently Modified</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LegalName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.LegalName, "Edit", new { id = item.BusinessId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telephone)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    @*The ColReorder extension*@
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/colreorder/1.1.1/js/dataTables.colReorder.min.js"></script>
+
+    @*The ColVis extension*@
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/colvis/1.1.0/js/dataTables.colVis.min.js"></script>
+
+    @*The TableTools extension*@
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/tabletools/2.2.1/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('.table').dataTable();
+            var tt = new $.fn.dataTable.TableTools(table); $(tt.fnContainer()).insertBefore('div.dataTables_wrapper');
+        });
+    </script>
 }
 
-</table>
+
