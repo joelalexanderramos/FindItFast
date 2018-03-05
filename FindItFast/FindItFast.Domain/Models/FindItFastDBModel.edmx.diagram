@@ -5,7 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="40cc6577652946098c701e7933e3ee6c" Name="Diagram1">
-        <EntityTypeShape EntityType="FindItFastModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindItFastModel.Business" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FindItFastModel.User" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

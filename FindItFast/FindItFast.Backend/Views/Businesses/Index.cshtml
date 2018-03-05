@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FindItFast.Domain.Models.Business>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Businesses</h2>
+
+<p>
+    @Html.ActionLink("New Business", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>Action</th>
+        <th>
+            @Html.DisplayNameFor(model => model.LegalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfEmployees)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr> 
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BusinessId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BusinessId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BusinessId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LegalName)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfEmployees)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+    </tr>
+}
+
+</table>

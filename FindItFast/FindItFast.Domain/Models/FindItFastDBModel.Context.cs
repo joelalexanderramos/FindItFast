@@ -25,6 +25,7 @@ namespace FindItFast.Domain.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Business> Business { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

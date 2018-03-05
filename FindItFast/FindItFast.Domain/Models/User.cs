@@ -25,8 +25,8 @@ namespace FindItFast.Domain.Models
         public string WorkPhone { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> CreatedById { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
-        public Nullable<int> LastModifiedById { get; set; }
+        public Nullable<int> LastModifiedBy { get; set; }
     }
 }
