@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using FindItFast.Backend.Models;
 using FindItFast.Domain.Models;
+using FindItFast.Backend.Helpers;
 
 namespace FindItFast.Backend.Controllers
 {
@@ -20,7 +21,7 @@ namespace FindItFast.Backend.Controllers
         public async Task<ActionResult> Index()
         {
             return View(await db.Users.ToListAsync());
-        }
+        }       
 
         // GET: Users/Details/5
         public async Task<ActionResult> Details(int? id)
@@ -40,6 +41,8 @@ namespace FindItFast.Backend.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
+            ViewBag.Genders = new SelectList(GlobalMethods.LoadGenders());
+
             return View();
         }
 
@@ -70,6 +73,8 @@ namespace FindItFast.Backend.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Genders = new SelectList(GlobalMethods.LoadGenders());
             return View(user);
         }
 

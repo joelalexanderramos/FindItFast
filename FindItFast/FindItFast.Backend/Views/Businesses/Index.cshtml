@@ -82,6 +82,7 @@
         </tbody>
     </table>
 </div>
+
 @section scripts{
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.js"></script>
@@ -103,8 +104,9 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var table = $('.table').dataTable();
-            var tt = new $.fn.dataTable.TableTools(table); $(tt.fnContainer()).insertBefore('div.dataTables_wrapper');
+            $('.table').DataTable({
+                "dom": 'Rlfrtip'
+            });
         });
     </script>
 }
