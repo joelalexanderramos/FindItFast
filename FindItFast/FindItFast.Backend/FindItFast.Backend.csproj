@@ -512,7 +512,7 @@
     <Content Include="Views\Businesses\Details.cshtml" />
     <Content Include="Views\Businesses\Edit.cshtml" />
     <Content Include="Views\Businesses\Index.cshtml" />
-    <Content Include="Views\Users\_Details.cshtml" />
+    <Content Include="Views\Users\GetUserDetailsModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

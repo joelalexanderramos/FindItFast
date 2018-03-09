@@ -38,6 +38,21 @@ namespace FindItFast.Backend.Controllers
             return View(user);
         }
 
+        // GET: Users/GetUserDetailsModal/5
+        public async Task<ActionResult> GetUserDetailsModal(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User user = await db.Users.FindAsync(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
         // GET: Users/Create
         public ActionResult Create()
         {

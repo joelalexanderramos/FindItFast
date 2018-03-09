@@ -46,7 +46,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FullName)
-                    <a href="#" onclick="editUser(@item.UserId)" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.JobTitle)
@@ -88,11 +87,7 @@
         $(document).ready(function () {
             $('.table').DataTable({
                 "dom": 'Rlfrtip'
-            });
+            });          
         });
-
-        function editUser(userId) {
-            alert(userId);
-        }
     </script>
 }

@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FindItFastDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FindItFastDBModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FindItFastDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IAuditable.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>FindItFastDBModel.tt</DependentUpon>
@@ -102,6 +107,7 @@
     <Content Include="Models\FindItFastDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FindItFastDBModel.edmx</DependentUpon>
+      <LastGenOutput>FindItFastDBModel1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

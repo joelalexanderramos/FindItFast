@@ -40,6 +40,8 @@ namespace FindItFast.Backend.Controllers
         // GET: Businesses/Create
         public ActionResult Create()
         {
+            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FullName");
+
             return View();
         }
 
@@ -48,10 +50,10 @@ namespace FindItFast.Backend.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "BusinessId,ParentId,ManagerId,LegalName,BranchCode,FounderBy,FoundingDate,Address,City,NumberOfEmployees,PostalCode,Country,Latitude,Longitude,Email,Telephone,FaxNumber,OpeningHours,Logo,IsActive,CreatedDate,CreatedBy,LastModifiedDate,LastModifedDateBy")] Business business)
+        public async Task<ActionResult> Create(Business business)
         {
             if (ModelState.IsValid)
-            {
+            {              
                 db.Businesses.Add(business);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -80,7 +82,7 @@ namespace FindItFast.Backend.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "BusinessId,ParentId,ManagerId,LegalName,BranchCode,FounderBy,FoundingDate,Address,City,NumberOfEmployees,PostalCode,Country,Latitude,Longitude,Email,Telephone,FaxNumber,OpeningHours,Logo,IsActive,CreatedDate,CreatedBy,LastModifiedDate,LastModifedDateBy")] Business business)
+        public async Task<ActionResult> Edit(Business business)
         {
             if (ModelState.IsValid)
             {

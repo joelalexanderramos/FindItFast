@@ -38,5 +38,7 @@ namespace FindItFast.Domain.Models
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
         public Nullable<int> LastModifedDateBy { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

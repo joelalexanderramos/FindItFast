@@ -53,9 +53,25 @@
           <Property Name="LastModifiedDate" Type="datetime" />
           <Property Name="LastModifiedBy" Type="int" />
         </EntityType>
+        <Association Name="FK_ManagerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FindItFastModelStoreContainer">
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ManagerId" Association="Self.FK_ManagerId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -64,6 +80,10 @@
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Business" EntityType="FindItFastModel.Business" />
           <EntitySet Name="User" EntityType="FindItFastModel.User" />
+          <AssociationSet Name="FK_ManagerId" Association="FindItFastModel.FK_ManagerId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Business">
           <Key>
@@ -93,6 +113,7 @@
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="LastModifedDateBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="FindItFastModel.FK_ManagerId" FromRole="Business" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -112,7 +133,20 @@
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="LastModifiedBy" Type="Int32" />
+          <NavigationProperty Name="Business" Relationship="FindItFastModel.FK_ManagerId" FromRole="User" ToRole="Business" />
         </EntityType>
+        <Association Name="FK_ManagerId">
+          <End Type="FindItFastModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="FindItFastModel.Business" Role="Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

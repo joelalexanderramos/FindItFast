@@ -6,7 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="40cc6577652946098c701e7933e3ee6c" Name="Diagram1">
         <EntityTypeShape EntityType="FindItFastModel.Business" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="FindItFastModel.User" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FindItFastModel.User" Width="1.5" PointX="6" PointY="1.375" />
+        <AssociationConnector Association="FindItFastModel.FK_ManagerId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
